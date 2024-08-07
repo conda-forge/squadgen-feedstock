@@ -1,5 +1,5 @@
 {% set name = "squadgen" %}
-{% set version = "1.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/ClimateGlobalChange/squadgen/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a39f9f467563e796c1b0a53c7bf7d046f50110a030d92350754a60ada4eda053
+  sha256: 50ef6550ca6a245e75c5d594fee9fe5f51f94656ee37ebda968b963bf1b05bed
   patches:
     - 0001-remove-png-h.patch
 
@@ -31,9 +31,7 @@ test:
     - test/grid.png
   commands:
     - >
-      SQuadGen --refine_file test/grid.png --refine_level 5
-      --refine_type LOWCONN --resolution 30 --smooth_type SPRING
-      --smooth_dist 3 --smooth_iter 20 --output grid.g
+      SQuadGen --refine_file test/grid.png --refine_level 5 --refine_type LOWCONN --resolution 30 --smooth_type SPRING --smooth_dist 3 --smooth_iter 20 --output grid.g
     - test -f "grid.g"
 
 about:
